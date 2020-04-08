@@ -30,7 +30,7 @@ public class CRACustomer {
         this.sNumber = sNumber;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fullName = fullName;
+        this.fullName = calculateFullName();
         this.birthDate = birthDate;
         this.gender = gender;
         this.age = calculateAge();
@@ -188,5 +188,11 @@ public class CRACustomer {
         LocalDate today = LocalDate.now();
         age = today.getYear() - birthDate.getYear();
         return age;
+    }
+
+    private String calculateFullName(){
+        String fullName;
+        fullName = lastName.toUpperCase() + "," + firstName.toLowerCase();
+        return fullName;
     }
 }
