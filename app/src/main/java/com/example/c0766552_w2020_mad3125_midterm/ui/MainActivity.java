@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private String rgGender;
     private TextInputLayout txtGIncome;
     private TextInputLayout txtRContributed;
+    private Button btnSubmit;
 
     // private TextView txtBDate;
    // private Button btnBDate;
@@ -107,5 +108,14 @@ public class MainActivity extends AppCompatActivity {
         // Gross Income and RRSP Contributed
         txtGIncome = findViewById(R.id.grossIncomeTextInputLayout);
         txtRContributed = findViewById(R.id.RRSPContributedTextInputLayout);
+
+        //Submit Button
+        btnSubmit = findViewById(R.id.buttonSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 }
