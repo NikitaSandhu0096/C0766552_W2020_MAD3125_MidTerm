@@ -107,9 +107,7 @@ public class CRACustomer {
         return txtFilingDate;
     }
 
-    public void setTxtFilingDate(String txtFilingDate) {
-        this.txtFilingDate = txtFilingDate;
-    }
+    public void setTxtFilingDate(String txtFilingDate) { this.txtFilingDate = txtFilingDate; }
 
     public float getGrossIncome() { return grossIncome; }
 

@@ -3,6 +3,7 @@ package com.example.c0766552_w2020_mad3125_midterm.ui;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -49,6 +50,9 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtCarryForwardRRSP = findViewById(R.id.textView15);
         txtTotalTaxableIncome = findViewById(R.id.textView16);
         txtTotalTaxPayed = findViewById(R.id.textView17);
+
+//        Intent sint = getIntent();
+//        String s = sint.getStringExtra("sin");
 
         txtSINNumber.setText("Person SIN Number : ");
         txtSINNumber.setTextSize(16);

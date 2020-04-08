@@ -21,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personSINNumberTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Person SIN Number" />
@@ -38,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/personSINNumberTextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstNameTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="First Name" />
@@ -55,6 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/firstNameTextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastNameTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Last Name" />
@@ -72,26 +75,11 @@
         app:layout_constraintTop_toBottomOf="@+id/lastNameTextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/birthDateTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Birth Date" />
     </com.google.android.material.textfield.TextInputLayout>
-
-<!--    <Button-->
-<!--        android:id="@+id/buttonBirthDate"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Click On the Button to select Birth Date"-->
-<!--        android:layout_marginBottom="12dp"/>-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/textViewBirthDate"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginBottom="12dp"-->
-<!--        android:hint="Birth Date"-->
-<!--        android:textColor="@color/design_default_color_on_secondary"-->
-<!--        android:textSize="18sp" />-->
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -136,8 +124,10 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/grossIncomeTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_dollar"
             android:hint="Gross Income" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,8 +143,10 @@
         app:layout_constraintTop_toBottomOf="@+id/grossIncomeTextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/RRSPContributedTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_dollar"
             android:hint="RRSP Contributed" />
     </com.google.android.material.textfield.TextInputLayout>
 
