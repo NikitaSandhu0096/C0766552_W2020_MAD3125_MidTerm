@@ -51,33 +51,48 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtTotalTaxPayed = findViewById(R.id.textView17);
 
         txtSINNumber.setText("Person SIN Number : ");
+        txtSINNumber.setTextSize(16);
 
         txtFullName.setText("Full Name : ");
+        txtFullName.setTextSize(16);
 
         txtBirthDate.setText("Birth Date : ");
+        txtBirthDate.setTextSize(16);
 
         txtGender.setText("Gender : ");
+        txtGender.setTextSize(16);
 
         txtAge.setText("Age : ");
+        txtAge.setTextSize(16);
 
         txtTaxFilingDate.setText("Tax Filing Date : ");
+        txtTaxFilingDate.setTextSize(16);
 
         txtGrossIncome.setText("Gross Income : ");
+        txtGrossIncome.setTextSize(16);
 
         txtFederalTax.setText("Federal Tax : ");
+        txtFederalTax.setTextSize(16);
 
         txtProvincialTax.setText("Provincial Tax : ");
+        txtProvincialTax.setTextSize(16);
 
         txtCPP.setText("CPP : ");
+        txtCPP.setTextSize(16);
 
         txtEI.setText("EI : ");
+        txtEI.setTextSize(16);
 
         txtRRSPContributed.setText("RRSP Contributed : ");
+        txtRRSPContributed.setTextSize(16);
 
         txtCarryForwardRRSP.setText("Carry Forward RRSP : ");
+        txtCarryForwardRRSP.setTextSize(16);
 
         txtTotalTaxableIncome.setText("Total Taxable Income : ");
+        txtTotalTaxableIncome.setTextSize(16);
 
         txtTotalTaxPayed.setText("Total Tax Payed : ");
+        txtTotalTaxPayed.setTextSize(16);
     }
 }
