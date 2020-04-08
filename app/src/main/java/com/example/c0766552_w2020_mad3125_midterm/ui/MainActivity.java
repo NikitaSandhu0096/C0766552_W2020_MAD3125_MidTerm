@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private TextInputLayout txtBrDate;
     private RadioGroup rGender;
     private String rgGender;
+    private TextInputLayout txtGIncome;
+    private TextInputLayout txtRContributed;
 
     // private TextView txtBDate;
    // private Button btnBDate;
@@ -35,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // PIN, First Name and Last Name
         txtPIN = findViewById(R.id.personSINNumberTextInputLayout);
         txtFName= findViewById(R.id.firstNameTextInputLayout);
         txtLName = findViewById(R.id.lastNameTextInputLayout);
 
-        // Radio Group
+        // Radio Group Gender
         rGender = findViewById(R.id.radioGroup);
         rGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Birth Date
         txtBrDate = findViewById(R.id.birthDateTextInputLayout);
 
 //        txtBrDate.setOnTouchListener(new View.OnTouchListener() {
@@ -99,5 +103,9 @@ public class MainActivity extends AppCompatActivity {
 //                materialDatePicker.show(getSupportFragmentManager(),null);
 //            }
 //        });
+
+        // Gross Income and RRSP Contributed
+        txtGIncome = findViewById(R.id.grossIncomeTextInputLayout);
+        txtRContributed = findViewById(R.id.RRSPContributedTextInputLayout);
     }
 }
