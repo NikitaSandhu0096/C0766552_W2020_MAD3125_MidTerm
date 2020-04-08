@@ -49,5 +49,35 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtCarryForwardRRSP = findViewById(R.id.textView15);
         txtTotalTaxableIncome = findViewById(R.id.textView16);
         txtTotalTaxPayed = findViewById(R.id.textView17);
+
+        txtSINNumber.setText("Person SIN Number : ");
+
+        txtFullName.setText("Full Name : ");
+
+        txtBirthDate.setText("Birth Date : ");
+
+        txtGender.setText("Gender : ");
+
+        txtAge.setText("Age : ");
+
+        txtTaxFilingDate.setText("Tax Filing Date : ");
+
+        txtGrossIncome.setText("Gross Income : ");
+
+        txtFederalTax.setText("Federal Tax : ");
+
+        txtProvincialTax.setText("Provincial Tax : ");
+
+        txtCPP.setText("CPP : ");
+
+        txtEI.setText("EI : ");
+
+        txtRRSPContributed.setText("RRSP Contributed : ");
+
+        txtCarryForwardRRSP.setText("Carry Forward RRSP : ");
+
+        txtTotalTaxableIncome.setText("Total Taxable Income : ");
+
+        txtTotalTaxPayed.setText("Total Tax Payed : ");
     }
 }
