@@ -1,10 +1,17 @@
 package com.example.c0766552_w2020_mad3125_midterm.model;
 
+import android.icu.text.SimpleDateFormat;
+import android.icu.text.TimeZoneFormat;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import java.text.DateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class CRACustomer {
     private int sNumber;
@@ -14,7 +21,7 @@ public class CRACustomer {
     private LocalDate birthDate;
     private String gender;
     private int age;
-    private LocalDate txtFilingDate;
+    private String txtFilingDate;
     private float grossIncome;
     private float federalTax;
     private float provincialTax;
@@ -33,8 +40,8 @@ public class CRACustomer {
         this.fullName = calculateFullName();
         this.birthDate = birthDate;
         this.gender = gender;
-        this.age = calculateAge();
-        this.txtFilingDate = txtFilingDate;
+        this.age = calculateAge(birthDate);
+        this.txtFilingDate = calculateFilingDate();
         this.grossIncome = grossIncome;
         this.federalTax = federalTax;
         this.provincialTax = provincialTax;
@@ -54,9 +61,7 @@ public class CRACustomer {
         this.sNumber = sNumber;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
+    public String getFirstName() { return firstName; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -70,17 +75,13 @@ public class CRACustomer {
         this.lastName = lastName;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
+    public String getFullName() { return fullName; }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
+    public LocalDate getBirthDate() { return birthDate; }
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
@@ -102,17 +103,15 @@ public class CRACustomer {
         this.age = age;
     }
 
-    public LocalDate getTxtFilingDate() {
+    public String getTxtFilingDate() {
         return txtFilingDate;
     }
 
-    public void setTxtFilingDate(LocalDate txtFilingDate) {
+    public void setTxtFilingDate(String txtFilingDate) {
         this.txtFilingDate = txtFilingDate;
     }
 
-    public float getGrossIncome() {
-        return grossIncome;
-    }
+    public float getGrossIncome() { return grossIncome; }
 
     public void setGrossIncome(float grossIncome) {
         this.grossIncome = grossIncome;
@@ -154,25 +153,19 @@ public class CRACustomer {
         return rrspContributed;
     }
 
-    public void setRrspContributed(float rrspContributed) {
-        this.rrspContributed = rrspContributed;
-    }
+    public void setRrspContributed(float rrspContributed) { this.rrspContributed = rrspContributed; }
 
     public float getCarryForwardRRSP() {
         return carryForwardRRSP;
     }
 
-    public void setCarryForwardRRSP(float carryForwardRRSP) {
-        this.carryForwardRRSP = carryForwardRRSP;
-    }
+    public void setCarryForwardRRSP(float carryForwardRRSP) { this.carryForwardRRSP = carryForwardRRSP; }
 
     public float getTotalTaxableIncome() {
         return totalTaxableIncome;
     }
 
-    public void setTotalTaxableIncome(float totalTaxableIncome) {
-        this.totalTaxableIncome = totalTaxableIncome;
-    }
+    public void setTotalTaxableIncome(float totalTaxableIncome) { this.totalTaxableIncome = totalTaxableIncome; }
 
     public float getTotalTaxPayed() {
         return totalTaxPayed;
@@ -183,7 +176,7 @@ public class CRACustomer {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private int calculateAge(){
+    private int calculateAge(LocalDate birthDate){
         int age;
         LocalDate today = LocalDate.now();
         age = today.getYear() - birthDate.getYear();
@@ -192,7 +185,14 @@ public class CRACustomer {
 
     private String calculateFullName(){
         String fullName;
-        fullName = lastName.toUpperCase() + "," + firstName.toLowerCase();
+        fullName = lastName.toUpperCase() + ", " + firstName.toLowerCase();
         return fullName;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String calculateFilingDate(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        Date date = Calendar.getInstance().getTime();
+        return dateFormat.format(date);
     }
 }
