@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         txtPIN = findViewById(R.id.personSINNumberTextInputLayout);
         txtFName= findViewById(R.id.firstNameTextInputLayout);
         txtLName = findViewById(R.id.lastNameTextInputLayout);
-        txtBDate = findViewById(R.id.textViewBirthDate);
+       // txtBDate = findViewById(R.id.textViewBirthDate);
     //    btnBDate = findViewById(R.id.buttonBirthDate);
 
 //        MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
