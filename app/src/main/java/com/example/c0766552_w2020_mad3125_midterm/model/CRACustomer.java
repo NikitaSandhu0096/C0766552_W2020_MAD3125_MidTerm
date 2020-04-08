@@ -39,5 +39,5 @@ public class CRACustomer {
         this.totalTaxPayed = totalTaxPayed;
     }
 
-    
+
 }

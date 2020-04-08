@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.c0766552_w2020_mad3125_midterm.R;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -22,11 +24,12 @@ public class MainActivity extends AppCompatActivity {
     private TextInputLayout txtFName;
     private TextInputLayout txtLName;
     private TextInputLayout txtBrDate;
+    private RadioGroup rGender;
+    private String rgGender;
 
     // private TextView txtBDate;
    // private Button btnBDate;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,29 @@ public class MainActivity extends AppCompatActivity {
         txtPIN = findViewById(R.id.personSINNumberTextInputLayout);
         txtFName= findViewById(R.id.firstNameTextInputLayout);
         txtLName = findViewById(R.id.lastNameTextInputLayout);
+
+        // Radio Group
+        rGender = findViewById(R.id.radioGroup);
+        rGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.radioButton:
+                        rgGender = "Female";
+                        Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.radioButton2:
+                        rgGender = "Male";
+                        Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.radioButton3:
+                        rgGender = "Other";
+                        Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
         txtBrDate = findViewById(R.id.birthDateTextInputLayout);
 
 //        txtBrDate.setOnTouchListener(new View.OnTouchListener() {
