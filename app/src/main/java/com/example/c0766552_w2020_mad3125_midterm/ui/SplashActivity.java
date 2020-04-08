@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.c0766552_w2020_mad3125_midterm.MainActivity;
 import com.example.c0766552_w2020_mad3125_midterm.R;
 
 public class SplashActivity extends AppCompatActivity {
