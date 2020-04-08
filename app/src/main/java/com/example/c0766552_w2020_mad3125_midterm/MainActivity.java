@@ -9,8 +9,8 @@ import com.google.android.material.textfield.TextInputLayout;
 public class MainActivity extends AppCompatActivity {
 
     private TextInputLayout txtPIN;
-    private TextInputLayout txtfName;
-    private TextInputLayout txtlName;
+    private TextInputLayout txtFName;
+    private TextInputLayout txtLName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtPIN = findViewById(R.id.personSINNumberTextInputLayout);
-        txtfName= findViewById(R.id.firstNameTextInputLayout);
-        txtlName = findViewById(R.id.lastNameTextInputLayout);
+        txtFName= findViewById(R.id.firstNameTextInputLayout);
+        txtLName = findViewById(R.id.lastNameTextInputLayout);
     }
 }
