@@ -20,7 +20,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextInputLayout txtPIN;
+    private TextInputLayout txtSIN;
     private TextInputLayout txtFName;
     private TextInputLayout txtLName;
     private TextInputLayout txtBrDate;
@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // PIN, First Name and Last Name
-        txtPIN = findViewById(R.id.personSINNumberTextInputLayout);
+        // SIN, First Name and Last Name
+        txtSIN = findViewById(R.id.personSINNumberTextInputLayout);
         txtFName= findViewById(R.id.firstNameTextInputLayout);
         txtLName = findViewById(R.id.lastNameTextInputLayout);
 
