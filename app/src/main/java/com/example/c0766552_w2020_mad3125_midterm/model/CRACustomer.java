@@ -238,6 +238,8 @@ public class CRACustomer implements Serializable {
         }else {
             ei = (grossIncome*0.0162);
         }
+        BigDecimal bigDecimal = new BigDecimal(ei).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        ei = bigDecimal.doubleValue();
         return ei;
     }
 
