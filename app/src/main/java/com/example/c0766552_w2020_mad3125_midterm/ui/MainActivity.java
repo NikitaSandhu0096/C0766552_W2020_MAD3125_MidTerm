@@ -113,9 +113,20 @@ public class MainActivity extends AppCompatActivity {
                 String gincome = txtGIncome.getText().toString().trim();
                 String rcontributed = txtRContributed.getText().toString().trim();
 
-                if(txtSIN.getText().toString().matches("^(\\d{3}-\\d{3}-\\d{3})|(\\d{9})$")) {          //https://stackoverflow.com/questions/20082855/regular-expression-for-canadian-sin-social-insurance-number
+                if(sin.isEmpty()){
+                    txtSIN.setError("Please enter SIN Number");
+                }else if(fname.isEmpty()){
+                    txtFName.setError("Please enter First Name");
+                } else if(lname.isEmpty()){
+                    txtLName.setError("Please enter Last Name");
+                } else if(bdate.isEmpty()){
+                    txtBrDate.setError("Please enter Birth Date");
+                } else if(gincome.isEmpty()){
+                    txtGIncome.setError("Please enter Gross Income");
+                } else if(rcontributed.isEmpty()){
+                    txtRContributed.setError("Please enter RRSP Contributed");
+                } else if(txtSIN.getText().toString().matches("^(\\d{3}-\\d{3}-\\d{3})|(\\d{9})$")) {          //https://stackoverflow.com/questions/20082855/regular-expression-for-canadian-sin-social-insurance-number
                     CRACustomer tempobj = new CRACustomer(sin, fname, lname, bdate, rgGender, Double.parseDouble(gincome), Double.parseDouble(rcontributed));
-
                     Intent mint = new Intent(MainActivity.this, CustomerDetailsActivity.class);
                     mint.putExtra("tempobj", tempobj);
                     startActivity(mint);
