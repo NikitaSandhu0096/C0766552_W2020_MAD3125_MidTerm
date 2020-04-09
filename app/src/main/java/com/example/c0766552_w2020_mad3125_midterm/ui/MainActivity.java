@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                         Date date = calendar.getTime();
 
                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
-                       // DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.UK);
                         String s = dateFormat.format(date);
                         txtBrDate.setText(s);
                     }
@@ -114,11 +113,15 @@ public class MainActivity extends AppCompatActivity {
                 String gincome = txtGIncome.getText().toString().trim();
                 String rcontributed = txtRContributed.getText().toString().trim();
 
-                CRACustomer tempobj = new CRACustomer(sin, fname, lname, bdate, rgGender, Double.parseDouble(gincome), Double.parseDouble(rcontributed));
+                if(txtSIN.getText().toString().matches("^(\\d{3}-\\d{3}-\\d{3})|(\\d{9})$")) {          //https://stackoverflow.com/questions/20082855/regular-expression-for-canadian-sin-social-insurance-number
+                    CRACustomer tempobj = new CRACustomer(sin, fname, lname, bdate, rgGender, Double.parseDouble(gincome), Double.parseDouble(rcontributed));
 
-                Intent mint = new Intent(MainActivity.this, CustomerDetailsActivity.class);
-                mint.putExtra("tempobj",tempobj);
-                startActivity(mint);
+                    Intent mint = new Intent(MainActivity.this, CustomerDetailsActivity.class);
+                    mint.putExtra("tempobj", tempobj);
+                    startActivity(mint);
+                } else {
+                    Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

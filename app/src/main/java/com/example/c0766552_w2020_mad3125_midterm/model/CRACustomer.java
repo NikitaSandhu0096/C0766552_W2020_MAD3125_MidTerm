@@ -221,15 +221,6 @@ public class CRACustomer implements Serializable {
         return dateFormat.format(date);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    private String calculateBDate() throws ParseException {
-        SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = dateFormat1.parse(birthDate);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
-        birthDate = dateFormat.format(date);
-        return birthDate;
-    }
-
     private double calculateCPP(){
         if (grossIncome > 57400){
             cpp = 2927.40;

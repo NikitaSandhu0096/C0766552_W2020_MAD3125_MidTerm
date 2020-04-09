@@ -57,51 +57,51 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         CRACustomer tempobj = (CRACustomer) getIntent().getSerializableExtra("tempobj");
 
         txtSINNumber.setText("Person SIN Number : " + tempobj.getsNumber());
-        txtSINNumber.setTextSize(16);
+        txtSINNumber.setTextSize(18);
 
         txtFullName.setText("Full Name : " + tempobj.getFullName());
-        txtFullName.setTextSize(16);
+        txtFullName.setTextSize(18);
 
         txtBirthDate.setText("Birth Date : " + tempobj.getBirthDate());
-        txtBirthDate.setTextSize(16);
+        txtBirthDate.setTextSize(18);
 
         txtGender.setText("Gender : " + tempobj.getGender());
-        txtGender.setTextSize(16);
+        txtGender.setTextSize(18);
 
-        txtAge.setText("Age : ");
-        txtAge.setTextSize(16);
+        txtAge.setText("Age : " + tempobj.getAge());
+        txtAge.setTextSize(18);
 
         txtTaxFilingDate.setText("Tax Filing Date : " + tempobj.getTxtFilingDate());
-        txtTaxFilingDate.setTextSize(16);
+        txtTaxFilingDate.setTextSize(18);
 
         txtGrossIncome.setText("Gross Income : " + tempobj.getGrossIncome());
-        txtGrossIncome.setTextSize(16);
+        txtGrossIncome.setTextSize(18);
 
         txtFederalTax.setText("Federal Tax : " + tempobj.getFederalTax());
-        txtFederalTax.setTextSize(16);
+        txtFederalTax.setTextSize(18);
 
         txtProvincialTax.setText("Provincial Tax : " + tempobj.getProvincialTax());
-        txtProvincialTax.setTextSize(16);
+        txtProvincialTax.setTextSize(18);
 
         txtCPP.setText("CPP : " + tempobj.getCpp());
-        txtCPP.setTextSize(16);
+        txtCPP.setTextSize(18);
 
         txtEI.setText("EI : " + tempobj.getEi());
-        txtEI.setTextSize(16);
+        txtEI.setTextSize(18);
 
         txtRRSPContributed.setText("RRSP Contributed : " + tempobj.getRrspContributed());
-        txtRRSPContributed.setTextSize(16);
+        txtRRSPContributed.setTextSize(18);
 
         txtCarryForwardRRSP.setText("Carry Forward RRSP : " + tempobj.getCarryForwardRRSP());
-        txtCarryForwardRRSP.setTextSize(16);
+        txtCarryForwardRRSP.setTextSize(18);
 
         txtTotalTaxableIncome.setText("Total Taxable Income : " + tempobj.getTotalTaxableIncome());
-        txtTotalTaxableIncome.setTextSize(16);
+        txtTotalTaxableIncome.setTextSize(18);
 
         txtTotalTaxPayed.setText("Total Tax Payed : " + tempobj.getTotalTaxPayed());
-        txtTotalTaxPayed.setTextSize(16);
+        txtTotalTaxPayed.setTextSize(18);
 
         txtMaxRRSPAllowed.setText("Max RRSP Allowed : " + tempobj.getMaxRRSPAllowed());
-        txtMaxRRSPAllowed.setTextSize(16);
+        txtMaxRRSPAllowed.setTextSize(18);
     }
 }
