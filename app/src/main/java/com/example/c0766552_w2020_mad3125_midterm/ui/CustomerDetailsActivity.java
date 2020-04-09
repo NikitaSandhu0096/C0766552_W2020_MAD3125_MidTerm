@@ -92,8 +92,15 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtRRSPContributed.setText("RRSP Contributed : " + tempobj.getRrspContributed());
         txtRRSPContributed.setTextSize(18);
 
-        txtCarryForwardRRSP.setText("Carry Forward RRSP : " + tempobj.getCarryForwardRRSP());
-        txtCarryForwardRRSP.setTextSize(18);
+        double d = tempobj.getCarryForwardRRSP();
+        if (d > 0) {
+            txtCarryForwardRRSP.setText("Carry Forward RRSP : " + tempobj.getCarryForwardRRSP());
+            txtCarryForwardRRSP.setTextSize(18);
+        }else {
+            txtCarryForwardRRSP.setText("Carry Forward RRSP : " + tempobj.getCarryForwardRRSP());
+            txtCarryForwardRRSP.setTextColor(getResources().getColor(R.color.red));
+            txtCarryForwardRRSP.setTextSize(18);
+        }
 
         txtTotalTaxableIncome.setText("Total Taxable Income : " + tempobj.getTotalTaxableIncome());
         txtTotalTaxableIncome.setTextSize(18);

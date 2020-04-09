@@ -56,15 +56,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (checkedId){
                     case R.id.radioButton:
                         rgGender = "Female";
-                        Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.radioButton2:
                         rgGender = "Male";
-                        Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.radioButton3:
                         rgGender = "Other";
-                        Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(MainActivity.this, rgGender, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
