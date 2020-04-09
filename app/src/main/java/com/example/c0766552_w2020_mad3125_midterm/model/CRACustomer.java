@@ -25,19 +25,19 @@ public class CRACustomer implements Serializable {
     private String gender;
     private int age;
     private String txtFilingDate;
-    private float grossIncome;
-    private float federalTax;
-    private float provincialTax;
-    private float cpp;
-    private float ei;
-    private float rrspContributed;
-    private float carryForwardRRSP;
-    private float totalTaxableIncome;
-    private float totalTaxPayed;
-    private float maxRRSPAllowed;
+    private double grossIncome;
+    private double federalTax;
+    private double provincialTax;
+    private double cpp;
+    private double ei;
+    private double rrspContributed;
+    private double carryForwardRRSP;
+    private double totalTaxableIncome;
+    private double totalTaxPayed;
+    private double maxRRSPAllowed;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public CRACustomer(String sNumber, String firstName, String lastName, String birthDate, String gender, float grossIncome, float rrspContributed) {
+    public CRACustomer(String sNumber, String firstName, String lastName, String birthDate, String gender, double grossIncome, double rrspContributed) {
         this.sNumber = sNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,7 +48,7 @@ public class CRACustomer implements Serializable {
         this.txtFilingDate = calculateFilingDate();
         this.grossIncome = grossIncome;
         this.federalTax = federalTax;
-        this.provincialTax = provincialTax;
+        this.provincialTax = calculateProvincialTax();
         this.cpp = calculateCPP();
         this.ei = calculateEI();
         this.rrspContributed = rrspContributed;
@@ -62,7 +62,7 @@ public class CRACustomer implements Serializable {
         return sNumber;
     }
 
-    public float getMaxRRSPAllowed() { return maxRRSPAllowed; }
+    public double getMaxRRSPAllowed() { return maxRRSPAllowed; }
 
     public void setMaxRRSPAllowed(float maxRRSPAllowed) { this.maxRRSPAllowed = maxRRSPAllowed; }
 
@@ -118,67 +118,67 @@ public class CRACustomer implements Serializable {
 
     public void setTxtFilingDate(String txtFilingDate) { this.txtFilingDate = txtFilingDate; }
 
-    public float getGrossIncome() { return grossIncome; }
+    public double getGrossIncome() { return grossIncome; }
 
-    public void setGrossIncome(float grossIncome) {
+    public void setGrossIncome(double grossIncome) {
         this.grossIncome = grossIncome;
     }
 
-    public float getFederalTax() {
+    public double getFederalTax() {
         return federalTax;
     }
 
-    public void setFederalTax(float federalTax) {
+    public void setFederalTax(double federalTax) {
         this.federalTax = federalTax;
     }
 
-    public float getProvincialTax() {
+    public double getProvincialTax() {
         return provincialTax;
     }
 
-    public void setProvincialTax(float provincialTax) {
+    public void setProvincialTax(double provincialTax) {
         this.provincialTax = provincialTax;
     }
 
-    public float getCpp() {
+    public double getCpp() {
         return cpp;
     }
 
-    public void setCpp(float cpp) {
+    public void setCpp(double cpp) {
         this.cpp = cpp;
     }
 
-    public float getEi() {
+    public double getEi() {
         return ei;
     }
 
-    public void setEi(float ei) {
+    public void setEi(double ei) {
         this.ei = ei;
     }
 
-    public float getRrspContributed() {
+    public double getRrspContributed() {
         return rrspContributed;
     }
 
-    public void setRrspContributed(float rrspContributed) { this.rrspContributed = rrspContributed; }
+    public void setRrspContributed(double rrspContributed) { this.rrspContributed = rrspContributed; }
 
-    public float getCarryForwardRRSP() {
+    public double getCarryForwardRRSP() {
         return carryForwardRRSP;
     }
 
     public void setCarryForwardRRSP(float carryForwardRRSP) { this.carryForwardRRSP = carryForwardRRSP; }
 
-    public float getTotalTaxableIncome() {
+    public double getTotalTaxableIncome() {
         return totalTaxableIncome;
     }
 
-    public void setTotalTaxableIncome(float totalTaxableIncome) { this.totalTaxableIncome = totalTaxableIncome; }
+    public void setTotalTaxableIncome(double totalTaxableIncome) { this.totalTaxableIncome = totalTaxableIncome; }
 
-    public float getTotalTaxPayed() {
+    public double getTotalTaxPayed() {
         return totalTaxPayed;
     }
 
-    public void setTotalTaxPayed(float totalTaxPayed) {
+    public void setTotalTaxPayed(double totalTaxPayed) {
         this.totalTaxPayed = totalTaxPayed;
     }
 
@@ -230,36 +230,41 @@ public class CRACustomer implements Serializable {
         return birthDate;
     }
 
-    private float calculateCPP(){
+    private double calculateCPP(){
         if (grossIncome > 57400){
-            cpp = (float) 2927.40;
+            cpp = 2927.40;
         }else {
-            cpp = (float) (grossIncome*0.051);
+            cpp = (grossIncome*0.051);
         }
         return cpp;
     }
 
-    private float calculateEI(){
+    private double calculateEI(){
         if (grossIncome > 53100){
-            ei = (float) 860.22;
+            ei = 860.22;
         }else {
-            ei = (float) (grossIncome*0.0162);
+            ei = (grossIncome*0.0162);
         }
         return ei;
     }
 
-    private float calculateMaxRRSPAllowed(){
-        maxRRSPAllowed = (float) (grossIncome*0.18);
+    private double calculateMaxRRSPAllowed(){
+        maxRRSPAllowed = (grossIncome*0.18);
         return maxRRSPAllowed;
     }
 
-    private float calculateTotalTaxableIncome(){
+    private double calculateTotalTaxableIncome(){
         totalTaxableIncome = (grossIncome - (calculateCPP() + calculateEI() + rrspContributed));
         return totalTaxableIncome;
     }
 
-    private float calculateCarryForwardRRSP(){
+    private double calculateCarryForwardRRSP(){
         carryForwardRRSP = (calculateMaxRRSPAllowed() - rrspContributed);
         return carryForwardRRSP;
+    }
+
+    private double calculateProvincialTax(){
+
+        return provincialTax;
     }
 }

@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 String gincome = txtGIncome.getText().toString().trim();
                 String rcontributed = txtRContributed.getText().toString().trim();
 
-                CRACustomer tempobj = new CRACustomer(sin, fname, lname, bdate, rgGender, Float.parseFloat(gincome), Float.parseFloat(rcontributed));
+                CRACustomer tempobj = new CRACustomer(sin, fname, lname, bdate, rgGender, Double.parseDouble(gincome), Double.parseDouble(rcontributed));
 
                 Intent mint = new Intent(MainActivity.this, CustomerDetailsActivity.class);
                 mint.putExtra("tempobj",tempobj);
