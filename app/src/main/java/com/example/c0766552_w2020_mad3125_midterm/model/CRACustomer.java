@@ -243,6 +243,8 @@ public class CRACustomer implements Serializable {
 
     private double calculateMaxRRSPAllowed(){
         maxRRSPAllowed = (grossIncome*0.18);
+        BigDecimal bigDecimal = new BigDecimal(maxRRSPAllowed).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        maxRRSPAllowed = bigDecimal.doubleValue();
         return maxRRSPAllowed;
     }
 
