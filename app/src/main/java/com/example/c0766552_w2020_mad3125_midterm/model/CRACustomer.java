@@ -52,7 +52,7 @@ public class CRACustomer implements Serializable {
         this.cpp = calculateCPP();
         this.ei = calculateEI();
         this.rrspContributed = rrspContributed;
-        this.carryForwardRRSP = carryForwardRRSP;
+        this.carryForwardRRSP = calculateCarryForwardRRSP();
         this.totalTaxableIncome = calculateTotalTaxableIncome();
         this.totalTaxPayed = totalTaxPayed;
         this.maxRRSPAllowed = calculateMaxRRSPAllowed();
@@ -256,5 +256,10 @@ public class CRACustomer implements Serializable {
     private float calculateTotalTaxableIncome(){
         totalTaxableIncome = (grossIncome - (calculateCPP() + calculateEI() + rrspContributed));
         return totalTaxableIncome;
+    }
+
+    private float calculateCarryForwardRRSP(){
+        carryForwardRRSP = (calculateMaxRRSPAllowed() - rrspContributed);
+        return carryForwardRRSP;
     }
 }
