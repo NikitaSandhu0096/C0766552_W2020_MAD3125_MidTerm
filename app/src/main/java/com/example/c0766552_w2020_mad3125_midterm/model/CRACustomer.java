@@ -229,6 +229,8 @@ public class CRACustomer implements Serializable {
         }else {
             cpp = (grossIncome*0.051);
         }
+        BigDecimal bigDecimal = new BigDecimal(cpp).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        cpp = bigDecimal.doubleValue();
         return cpp;
     }
 
