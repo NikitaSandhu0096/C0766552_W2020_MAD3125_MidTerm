@@ -7,6 +7,8 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -337,6 +339,8 @@ public class CRACustomer implements Serializable {
             }
         }
         federalTax = (tax*100)/100;
+        BigDecimal bigDecimal = new BigDecimal(federalTax).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        federalTax = bigDecimal.doubleValue();
         return federalTax;
     }
 }
