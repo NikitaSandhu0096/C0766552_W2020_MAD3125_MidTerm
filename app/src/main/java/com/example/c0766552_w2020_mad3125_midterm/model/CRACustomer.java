@@ -296,6 +296,8 @@ public class CRACustomer implements Serializable {
             }
         }
         provincialTax = (tax*100)/100;
+        BigDecimal bigDecimal = new BigDecimal(provincialTax).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        provincialTax = bigDecimal.doubleValue();
         return provincialTax;
     }
 
