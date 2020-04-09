@@ -34,6 +34,7 @@ public class CRACustomer implements Serializable {
     private float carryForwardRRSP;
     private float totalTaxableIncome;
     private float totalTaxPayed;
+    private float maxRRSPAllowed;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public CRACustomer(String sNumber, String firstName, String lastName, String birthDate, String gender, float grossIncome, float rrspContributed) {
@@ -54,11 +55,16 @@ public class CRACustomer implements Serializable {
         this.carryForwardRRSP = carryForwardRRSP;
         this.totalTaxableIncome = totalTaxableIncome;
         this.totalTaxPayed = totalTaxPayed;
+        this.maxRRSPAllowed = maxRRSPAllowed;
     }
 
     public String getsNumber() {
         return sNumber;
     }
+
+    public float getMaxRRSPAllowed() { return maxRRSPAllowed; }
+
+    public void setMaxRRSPAllowed(float maxRRSPAllowed) { this.maxRRSPAllowed = maxRRSPAllowed; }
 
     public void setsNumber(String sNumber) {
         this.sNumber = sNumber;
@@ -209,9 +215,16 @@ public class CRACustomer implements Serializable {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private String calculateFilingDate(){
+    private String calculateFilingDate(){           //https://stackoverflow.com/questions/8654990/how-can-i-get-current-date-in-android
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
         Date date = Calendar.getInstance().getTime();
         return dateFormat.format(date);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String calculateBirthdate(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        birthDate = dateFormat.format(birthDate);
+        return birthDate;
     }
 }

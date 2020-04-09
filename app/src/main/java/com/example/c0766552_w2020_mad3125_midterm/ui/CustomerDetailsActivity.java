@@ -27,6 +27,7 @@ public class CustomerDetailsActivity extends AppCompatActivity {
     private TextView txtCarryForwardRRSP;
     private TextView txtTotalTaxableIncome;
     private TextView txtTotalTaxPayed;
+    private TextView txtMaxRRSPAllowed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtCarryForwardRRSP = findViewById(R.id.textView15);
         txtTotalTaxableIncome = findViewById(R.id.textView16);
         txtTotalTaxPayed = findViewById(R.id.textView17);
+        txtMaxRRSPAllowed = findViewById(R.id.textView18);
 
         CRACustomer tempobj = (CRACustomer) getIntent().getSerializableExtra("tempobj");
 
@@ -98,5 +100,8 @@ public class CustomerDetailsActivity extends AppCompatActivity {
 
         txtTotalTaxPayed.setText("Total Tax Payed : ");
         txtTotalTaxPayed.setTextSize(16);
+
+        txtMaxRRSPAllowed.setText("Max RRSP Allowed : ");
+        txtMaxRRSPAllowed.setTextSize(16);
     }
 }
