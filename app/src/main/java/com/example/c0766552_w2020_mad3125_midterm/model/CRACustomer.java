@@ -50,7 +50,7 @@ public class CRACustomer implements Serializable {
         this.federalTax = federalTax;
         this.provincialTax = provincialTax;
         this.cpp = calculateCPP();
-        this.ei = ei;
+        this.ei = calculateEI();
         this.rrspContributed = rrspContributed;
         this.carryForwardRRSP = carryForwardRRSP;
         this.totalTaxableIncome = totalTaxableIncome;
@@ -239,5 +239,8 @@ public class CRACustomer implements Serializable {
         return cpp;
     }
 
-    
+    private float calculateEI(){
+        
+        return ei;
+    }
 }

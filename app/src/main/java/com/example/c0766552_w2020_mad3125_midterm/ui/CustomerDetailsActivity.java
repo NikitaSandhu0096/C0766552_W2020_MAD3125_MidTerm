@@ -86,22 +86,22 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtCPP.setText("CPP : " + tempobj.getCpp());
         txtCPP.setTextSize(16);
 
-        txtEI.setText("EI : ");
+        txtEI.setText("EI : " + tempobj.getEi());
         txtEI.setTextSize(16);
 
-        txtRRSPContributed.setText("RRSP Contributed : ");
+        txtRRSPContributed.setText("RRSP Contributed : " + tempobj.getRrspContributed());
         txtRRSPContributed.setTextSize(16);
 
-        txtCarryForwardRRSP.setText("Carry Forward RRSP : ");
+        txtCarryForwardRRSP.setText("Carry Forward RRSP : " + tempobj.getCarryForwardRRSP());
         txtCarryForwardRRSP.setTextSize(16);
 
-        txtTotalTaxableIncome.setText("Total Taxable Income : ");
+        txtTotalTaxableIncome.setText("Total Taxable Income : " + tempobj.getTotalTaxableIncome());
         txtTotalTaxableIncome.setTextSize(16);
 
-        txtTotalTaxPayed.setText("Total Tax Payed : ");
+        txtTotalTaxPayed.setText("Total Tax Payed : " + tempobj.getTotalTaxPayed());
         txtTotalTaxPayed.setTextSize(16);
 
-        txtMaxRRSPAllowed.setText("Max RRSP Allowed : ");
+        txtMaxRRSPAllowed.setText("Max RRSP Allowed : " + tempobj.getMaxRRSPAllowed());
         txtMaxRRSPAllowed.setTextSize(16);
     }
 }
