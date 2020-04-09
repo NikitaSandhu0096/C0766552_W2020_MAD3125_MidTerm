@@ -93,7 +93,7 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtRRSPContributed.setTextSize(18);
 
         double d = tempobj.getCarryForwardRRSP();
-        if (d > 0) {
+        if (d > 0) {                //https://stackoverflow.com/questions/13553555/changing-textview-color-based-on-positive-negative-number-through-xml
             txtCarryForwardRRSP.setText("Carry Forward RRSP : " + tempobj.getCarryForwardRRSP());
             txtCarryForwardRRSP.setTextSize(18);
         }else {
