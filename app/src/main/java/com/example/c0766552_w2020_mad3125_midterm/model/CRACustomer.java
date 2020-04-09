@@ -240,7 +240,11 @@ public class CRACustomer implements Serializable {
     }
 
     private float calculateEI(){
-        
+        if (grossIncome > 53100){
+            ei = (float) 860.22;
+        }else {
+            ei = (float) (grossIncome*0.0162);
+        }
         return ei;
     }
 }
