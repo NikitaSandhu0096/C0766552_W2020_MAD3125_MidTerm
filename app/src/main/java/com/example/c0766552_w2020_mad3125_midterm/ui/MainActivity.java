@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,7 +21,10 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,8 +79,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DatePickerDialog dialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        txtBrDate.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {       //https://android--code.blogspot.com/2015/08/android-datepickerdialog-date-format.html
+                        //txtBrDate.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(year,month,dayOfMonth);
+                        Date date = calendar.getTime();
+
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+                       // DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.UK);
+                        String s = dateFormat.format(date);
+                        txtBrDate.setText(s);
                     }
                 },Calendar.getInstance().get(Calendar.YEAR),
                       Calendar.getInstance().get(Calendar.MONTH),
