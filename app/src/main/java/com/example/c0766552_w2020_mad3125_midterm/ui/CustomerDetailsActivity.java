@@ -56,59 +56,59 @@ public class CustomerDetailsActivity extends AppCompatActivity {
 
         CRACustomer tempobj = (CRACustomer) getIntent().getSerializableExtra("tempobj");
 
-        txtSINNumber.setText("Person SIN Number : " + tempobj.getsNumber());
+        txtSINNumber.setText("Person SIN Number         : " + tempobj.getsNumber());
         txtSINNumber.setTextSize(18);
 
-        txtFullName.setText("Full Name : " + tempobj.getFullName());
+        txtFullName.setText("Full Name                          : " + tempobj.getFullName());
         txtFullName.setTextSize(18);
 
-        txtBirthDate.setText("Birth Date : " + tempobj.getBirthDate());
+        txtBirthDate.setText("Birth Date                          : " + tempobj.getBirthDate());
         txtBirthDate.setTextSize(18);
 
-        txtGender.setText("Gender : " + tempobj.getGender());
+        txtGender.setText("Gender                               : " + tempobj.getGender());
         txtGender.setTextSize(18);
 
-        txtAge.setText("Age : " + tempobj.getAge());
+        txtAge.setText("Age                                     : " + tempobj.getAge());
         txtAge.setTextSize(18);
 
-        txtTaxFilingDate.setText("Tax Filing Date : " + tempobj.getTxtFilingDate());
+        txtTaxFilingDate.setText("Tax Filing Date                  : " + tempobj.getTxtFilingDate());
         txtTaxFilingDate.setTextSize(18);
 
-        txtGrossIncome.setText("Gross Income : " + tempobj.getGrossIncome());
+        txtGrossIncome.setText("Gross Income                   :  $" + tempobj.getGrossIncome());
         txtGrossIncome.setTextSize(18);
 
-        txtFederalTax.setText("Federal Tax : " + tempobj.getFederalTax());
+        txtFederalTax.setText("Federal Tax                       :  $" + tempobj.getFederalTax());
         txtFederalTax.setTextSize(18);
 
-        txtProvincialTax.setText("Provincial Tax : " + tempobj.getProvincialTax());
+        txtProvincialTax.setText("Provincial Tax                   :  $" + tempobj.getProvincialTax());
         txtProvincialTax.setTextSize(18);
 
-        txtCPP.setText("CPP : " + tempobj.getCpp());
+        txtCPP.setText("CPP                                    :  $" + tempobj.getCpp());
         txtCPP.setTextSize(18);
 
-        txtEI.setText("EI : " + tempobj.getEi());
+        txtEI.setText("EI                                        :  $" + tempobj.getEi());
         txtEI.setTextSize(18);
 
-        txtRRSPContributed.setText("RRSP Contributed : " + tempobj.getRrspContributed());
+        txtRRSPContributed.setText("RRSP Contributed            :  $" + tempobj.getRrspContributed());
         txtRRSPContributed.setTextSize(18);
 
         double d = tempobj.getCarryForwardRRSP();
         if (d > 0) {                //https://stackoverflow.com/questions/13553555/changing-textview-color-based-on-positive-negative-number-through-xml
-            txtCarryForwardRRSP.setText("Carry Forward RRSP : " + tempobj.getCarryForwardRRSP());
+            txtCarryForwardRRSP.setText("Carry Forward RRSP        :  $" + tempobj.getCarryForwardRRSP());
             txtCarryForwardRRSP.setTextSize(18);
         }else {
-            txtCarryForwardRRSP.setText("Carry Forward RRSP : " + tempobj.getCarryForwardRRSP());
+            txtCarryForwardRRSP.setText("Carry Forward RRSP        :  $" + tempobj.getCarryForwardRRSP());
             txtCarryForwardRRSP.setTextColor(getResources().getColor(R.color.red));
             txtCarryForwardRRSP.setTextSize(18);
         }
 
-        txtTotalTaxableIncome.setText("Total Taxable Income : " + tempobj.getTotalTaxableIncome());
+        txtTotalTaxableIncome.setText("Total Taxable Income      :  $" + tempobj.getTotalTaxableIncome());
         txtTotalTaxableIncome.setTextSize(18);
 
-        txtTotalTaxPayed.setText("Total Tax Payed : " + tempobj.getTotalTaxPayed());
+        txtTotalTaxPayed.setText("Total Tax Payed               :  $" + tempobj.getTotalTaxPayed());
         txtTotalTaxPayed.setTextSize(18);
 
-        txtMaxRRSPAllowed.setText("Max RRSP Allowed : " + tempobj.getMaxRRSPAllowed());
+        txtMaxRRSPAllowed.setText("Max RRSP Allowed          :  $" + tempobj.getMaxRRSPAllowed());
         txtMaxRRSPAllowed.setTextSize(18);
     }
 }
