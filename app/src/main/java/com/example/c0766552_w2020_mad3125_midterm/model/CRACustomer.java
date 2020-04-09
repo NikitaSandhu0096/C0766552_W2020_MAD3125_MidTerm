@@ -56,7 +56,7 @@ public class CRACustomer implements Serializable {
         this.rrspContributed = rrspContributed;
         this.carryForwardRRSP = calculateCarryForwardRRSP();
         this.totalTaxableIncome = calculateTotalTaxableIncome();
-        this.totalTaxPayed = totalTaxPayed;
+        this.totalTaxPayed = calculateTotalTaxPayed();
         this.maxRRSPAllowed = calculateMaxRRSPAllowed();
     }
 
@@ -354,5 +354,12 @@ public class CRACustomer implements Serializable {
         BigDecimal bigDecimal = new BigDecimal(federalTax).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
         federalTax = bigDecimal.doubleValue();
         return federalTax;
+    }
+
+    private double calculateTotalTaxPayed(){
+        totalTaxPayed = federalTax + provincialTax;
+        BigDecimal bigDecimal = new BigDecimal(totalTaxPayed).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        totalTaxPayed = bigDecimal.doubleValue();
+        return totalTaxPayed;
     }
 }
