@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText txtGIncome;
     private TextInputEditText txtRContributed;
     private Button btnSubmit;
+    int age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         Calendar calendar1 = Calendar.getInstance();
                       //  Date date1 = calendar1.getTime();
 
-                        int age = calendar1.get(Calendar.YEAR) - calendar.get(Calendar.YEAR);           //https://stackoverflow.com/questions/7906301/how-can-i-find-the-number-of-years-between-two-dates
+                        age = calendar1.get(Calendar.YEAR) - calendar.get(Calendar.YEAR);           //https://stackoverflow.com/questions/7906301/how-can-i-find-the-number-of-years-between-two-dates
 
                         if(age > 18) {
                             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         }else{
                             txtBrDate.setText("Cannot File Tax");
                             txtBrDate.setTextColor(getResources().getColor(R.color.red));
-                            btnSubmit.setVisibility(View.INVISIBLE);
+                            btnSubmit.setVisibility(View.INVISIBLE);                //https://stackoverflow.com/questions/11964437/hide-dynamically-added-buttons-based-on-an-if-statement
                            // txtBrDate.setError("Cannot fill Tax");
                         }
                     }
@@ -138,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if(rcontributed.isEmpty()){
                     txtRContributed.setError("Please enter RRSP Contributed");
                 } else if(txtSIN.getText().toString().matches("^(\\d{3}-\\d{3}-\\d{3})|(\\d{9})$")) {          //https://stackoverflow.com/questions/20082855/regular-expression-for-canadian-sin-social-insurance-number
-                    CRACustomer tempobj = new CRACustomer(sin, fname, lname, bdate, rgGender, Double.parseDouble(gincome), Double.parseDouble(rcontributed));
+                    CRACustomer tempobj = new CRACustomer(sin, fname, lname, bdate, age, rgGender, Double.parseDouble(gincome), Double.parseDouble(rcontributed));
                     Intent mint = new Intent(MainActivity.this, CustomerDetailsActivity.class);
                     mint.putExtra("tempobj", tempobj);
                     startActivity(mint);

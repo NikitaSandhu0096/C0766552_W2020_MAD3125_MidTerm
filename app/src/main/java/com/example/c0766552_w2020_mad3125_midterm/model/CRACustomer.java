@@ -39,14 +39,14 @@ public class CRACustomer implements Serializable {
     private double maxRRSPAllowed;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public CRACustomer(String sNumber, String firstName, String lastName, String birthDate, String gender, double grossIncome, double rrspContributed) {
+    public CRACustomer(String sNumber, String firstName, String lastName, String birthDate, int age, String gender, double grossIncome, double rrspContributed) {
         this.sNumber = sNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = calculateFullName();
         this.birthDate = birthDate;
         this.gender = gender;
-        this.age = calculateAge(birthDate);
+        this.age = age;
         this.txtFilingDate = calculateFilingDate();
         this.grossIncome = grossIncome;
         this.federalTax = calculateFederalTax();
@@ -199,9 +199,10 @@ public class CRACustomer implements Serializable {
 //        return age;
 //    }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private int calculateAge(String birthDate) {        //https://www.candidjava.com/tutorial/java-program-to-calculate-age-from-date-of-birth/
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//    private int calculateAge() {        //https://www.candidjava.com/tutorial/java-program-to-calculate-age-from-date-of-birth/
 //        int age;
+//
 //        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 //        Date date1 = dateFormat.parse(birthDate);
 //        Calendar calendar = Calendar.getInstance();
@@ -213,8 +214,8 @@ public class CRACustomer implements Serializable {
 //        LocalDate now = LocalDate.now();
 //        Period period = Period.between(localDate, now);
 //        age = period.getYears();
-        return age;
-    }
+//        return age;
+//    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private String calculateFilingDate(){           //https://stackoverflow.com/questions/8654990/how-can-i-get-current-date-in-android
@@ -253,9 +254,15 @@ public class CRACustomer implements Serializable {
     }
 
     private double calculateTotalTaxableIncome(){
-        totalTaxableIncome = (grossIncome - (calculateCPP() + calculateEI() + rrspContributed));
-        BigDecimal bigDecimal = new BigDecimal(totalTaxableIncome).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
-        totalTaxableIncome = bigDecimal.doubleValue();
+        if (rrspContributed > maxRRSPAllowed) {
+            totalTaxableIncome = (grossIncome - (calculateCPP() + calculateEI() + maxRRSPAllowed));
+            BigDecimal bigDecimal = new BigDecimal(totalTaxableIncome).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+            totalTaxableIncome = bigDecimal.doubleValue();
+        }else {
+            totalTaxableIncome = (grossIncome - (calculateCPP() + calculateEI() + rrspContributed));
+            BigDecimal bigDecimal = new BigDecimal(totalTaxableIncome).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+            totalTaxableIncome = bigDecimal.doubleValue();
+        }
         return totalTaxableIncome;
     }
 
