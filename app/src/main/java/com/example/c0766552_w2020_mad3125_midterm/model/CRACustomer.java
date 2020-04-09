@@ -248,6 +248,8 @@ public class CRACustomer implements Serializable {
 
     private double calculateTotalTaxableIncome(){
         totalTaxableIncome = (grossIncome - (calculateCPP() + calculateEI() + rrspContributed));
+        BigDecimal bigDecimal = new BigDecimal(totalTaxableIncome).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        totalTaxableIncome = bigDecimal.doubleValue();
         return totalTaxableIncome;
     }
 
