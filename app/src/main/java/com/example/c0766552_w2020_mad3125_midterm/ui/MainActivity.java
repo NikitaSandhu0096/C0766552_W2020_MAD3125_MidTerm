@@ -85,9 +85,21 @@ public class MainActivity extends AppCompatActivity {
                         calendar.set(year,month,dayOfMonth);
                         Date date = calendar.getTime();
 
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
-                        String s = dateFormat.format(date);
-                        txtBrDate.setText(s);
+                        Calendar calendar1 = Calendar.getInstance();
+                      //  Date date1 = calendar1.getTime();
+
+                        int age = calendar1.get(Calendar.YEAR) - calendar.get(Calendar.YEAR);           //https://stackoverflow.com/questions/7906301/how-can-i-find-the-number-of-years-between-two-dates
+
+                        if(age > 18) {
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+                            String s = dateFormat.format(date);
+                            txtBrDate.setText(s);
+                        }else{
+                            txtBrDate.setText("Cannot File Tax");
+                            txtBrDate.setTextColor(getResources().getColor(R.color.red));
+                            btnSubmit.setVisibility(View.INVISIBLE);
+                           // txtBrDate.setError("Cannot fill Tax");
+                        }
                     }
                 },Calendar.getInstance().get(Calendar.YEAR),
                       Calendar.getInstance().get(Calendar.MONTH),
