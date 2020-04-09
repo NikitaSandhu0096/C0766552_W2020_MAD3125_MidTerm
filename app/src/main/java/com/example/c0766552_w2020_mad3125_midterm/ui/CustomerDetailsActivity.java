@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.c0766552_w2020_mad3125_midterm.R;
+import com.example.c0766552_w2020_mad3125_midterm.model.CRACustomer;
 
 public class CustomerDetailsActivity extends AppCompatActivity {
 
@@ -51,31 +52,30 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtTotalTaxableIncome = findViewById(R.id.textView16);
         txtTotalTaxPayed = findViewById(R.id.textView17);
 
-//        Intent sint = getIntent();
-//        String s = sint.getStringExtra("sin");
+        CRACustomer tempobj = (CRACustomer) getIntent().getSerializableExtra("tempobj");
 
-        txtSINNumber.setText("Person SIN Number : ");
+        txtSINNumber.setText("Person SIN Number : " + tempobj.getsNumber());
         txtSINNumber.setTextSize(16);
 
-        txtFullName.setText("Full Name : ");
+        txtFullName.setText("Full Name : " + tempobj.getFullName());
         txtFullName.setTextSize(16);
 
-        txtBirthDate.setText("Birth Date : ");
+        txtBirthDate.setText("Birth Date : " + tempobj.getBirthDate());
         txtBirthDate.setTextSize(16);
 
-        txtGender.setText("Gender : ");
+        txtGender.setText("Gender : " + tempobj.getGender());
         txtGender.setTextSize(16);
 
         txtAge.setText("Age : ");
         txtAge.setTextSize(16);
 
-        txtTaxFilingDate.setText("Tax Filing Date : ");
+        txtTaxFilingDate.setText("Tax Filing Date : " + tempobj.getTxtFilingDate());
         txtTaxFilingDate.setTextSize(16);
 
-        txtGrossIncome.setText("Gross Income : ");
+        txtGrossIncome.setText("Gross Income : " + tempobj.getGrossIncome());
         txtGrossIncome.setTextSize(16);
 
-        txtFederalTax.setText("Federal Tax : ");
+        txtFederalTax.setText("Federal Tax : " + tempobj.getFederalTax());
         txtFederalTax.setTextSize(16);
 
         txtProvincialTax.setText("Provincial Tax : ");

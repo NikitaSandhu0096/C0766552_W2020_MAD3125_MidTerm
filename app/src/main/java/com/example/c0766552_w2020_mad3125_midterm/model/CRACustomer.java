@@ -6,19 +6,22 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import java.io.Serializable;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class CRACustomer {
-    private int sNumber;
+public class CRACustomer implements Serializable {
+    private String sNumber;
     private String firstName;
     private String lastName;
     private String fullName;
-    private LocalDate birthDate;
+    private String birthDate;
     private String gender;
     private int age;
     private String txtFilingDate;
@@ -33,7 +36,7 @@ public class CRACustomer {
     private float totalTaxPayed;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public CRACustomer(int sNumber, String firstName, String lastName, LocalDate birthDate, String gender, float grossIncome, float rrspContributed) {
+    public CRACustomer(String sNumber, String firstName, String lastName, String birthDate, String gender, float grossIncome, float rrspContributed) {
         this.sNumber = sNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,11 +56,11 @@ public class CRACustomer {
         this.totalTaxPayed = totalTaxPayed;
     }
 
-    public int getsNumber() {
+    public String getsNumber() {
         return sNumber;
     }
 
-    public void setsNumber(int sNumber) {
+    public void setsNumber(String sNumber) {
         this.sNumber = sNumber;
     }
 
@@ -81,9 +84,9 @@ public class CRACustomer {
         this.fullName = fullName;
     }
 
-    public LocalDate getBirthDate() { return birthDate; }
+    public String getBirthDate() { return birthDate; }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -173,18 +176,36 @@ public class CRACustomer {
         this.totalTaxPayed = totalTaxPayed;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private int calculateAge(LocalDate birthDate){
-        int age;
-        LocalDate today = LocalDate.now();
-        age = today.getYear() - birthDate.getYear();
-        return age;
-    }
-
     private String calculateFullName(){
         String fullName;
         fullName = lastName.toUpperCase() + ", " + firstName.toLowerCase();
         return fullName;
+    }
+
+   // @RequiresApi(api = Build.VERSION_CODES.O)
+//    private int calculateAge(String birthDate){
+//        int age;
+//        LocalDate today = LocalDate.now();
+//        age = today.getYear();
+//                //- birthDate.getYear();
+//        return age;
+//    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private int calculateAge(String birthDate) {
+//        int age;
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+//        Date date1 = dateFormat.parse(birthDate);
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(date1);
+//        int year = calendar.get(Calendar.YEAR);
+//        int month = calendar.get(Calendar.MONTH);
+//        int date = calendar.get(Calendar.DATE);
+//        LocalDate localDate = LocalDate.of(year, month, date);
+//        LocalDate now = LocalDate.now();
+//        Period period = Period.between(localDate, now);
+//        age = period.getYears();
+        return age;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

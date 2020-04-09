@@ -15,9 +15,12 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.c0766552_w2020_mad3125_midterm.R;
+import com.example.c0766552_w2020_mad3125_midterm.model.CRACustomer;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.text.ParseException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 DatePickerDialog dialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        txtBrDate.setText(dayOfMonth + "-" + month + "-" + year);
+                        txtBrDate.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
                     }
                 },Calendar.getInstance().get(Calendar.YEAR),
                       Calendar.getInstance().get(Calendar.MONTH),
@@ -89,16 +92,20 @@ public class MainActivity extends AppCompatActivity {
         //Submit Button
         btnSubmit = findViewById(R.id.buttonSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 String sin = txtSIN.getText().toString().trim();
                 String fname = txtFName.getText().toString().trim();
                 String lname = txtLName.getText().toString().trim();
+                String bdate = txtBrDate.getText().toString().trim();
                 String gincome = txtGIncome.getText().toString().trim();
                 String rcontributed = txtRContributed.getText().toString().trim();
 
+                CRACustomer tempobj = new CRACustomer(sin, fname, lname, bdate, rgGender, Float.parseFloat(gincome), Float.parseFloat(rcontributed));
+
                 Intent mint = new Intent(MainActivity.this, CustomerDetailsActivity.class);
-                //mint.putExtra("sin",sin);
+                mint.putExtra("tempobj",tempobj);
                 startActivity(mint);
             }
         });
