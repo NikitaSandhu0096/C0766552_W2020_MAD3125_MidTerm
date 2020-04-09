@@ -47,7 +47,7 @@ public class CRACustomer implements Serializable {
         this.age = calculateAge(birthDate);
         this.txtFilingDate = calculateFilingDate();
         this.grossIncome = grossIncome;
-     //   this.federalTax = calculateFederalTax();
+        this.federalTax = calculateFederalTax();
         this.provincialTax = calculateProvincialTax();
         this.cpp = calculateCPP();
         this.ei = calculateEI();
@@ -295,5 +295,48 @@ public class CRACustomer implements Serializable {
         }
         provincialTax = (tax*100)/100;
         return provincialTax;
+    }
+
+    private double calculateFederalTax(){
+        double totalTaxableIncome1;
+        totalTaxableIncome1 = calculateTotalTaxableIncome();
+        double tax = 0;
+        if(totalTaxableIncome1 > 12069){
+            totalTaxableIncome1 = totalTaxableIncome1 - 12069;
+            tax = 0;
+            if(totalTaxableIncome1 > 47630){
+                double a = 47630-12069.01;
+                totalTaxableIncome1 = totalTaxableIncome1 - a;
+                tax = a*0.15;
+                if(totalTaxableIncome1 > 95259){
+                    double b = 95259-47630.01;
+                    totalTaxableIncome1 = totalTaxableIncome1 - b;
+                    tax = b*0.2050;
+                    if (totalTaxableIncome1 > 147667){
+                        double c = 147667-95259.01;
+                        totalTaxableIncome1 = totalTaxableIncome1 - c;
+                        tax = c*0.26;
+                        if (totalTaxableIncome1 > 210371){
+                            double d = 210371-147667.01;
+                            totalTaxableIncome1 = totalTaxableIncome1 - d;
+                            tax = d*0.29;
+                            if (totalTaxableIncome1 > 210371.01){
+                                tax = totalTaxableIncome1*0.33;
+                            }
+                        }else {
+                            tax = totalTaxableIncome1*0.29;
+                        }
+                    }else {
+                        tax = totalTaxableIncome1*0.26;
+                    }
+                }else {
+                    tax = totalTaxableIncome1*0.2050;
+                }
+            }else {
+                tax = totalTaxableIncome1*0.15;
+            }
+        }
+        federalTax = (tax*100)/100;
+        return federalTax;
     }
 }
