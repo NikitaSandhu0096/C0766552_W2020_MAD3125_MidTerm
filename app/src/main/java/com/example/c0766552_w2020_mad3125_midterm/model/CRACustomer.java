@@ -55,7 +55,7 @@ public class CRACustomer implements Serializable {
         this.carryForwardRRSP = carryForwardRRSP;
         this.totalTaxableIncome = totalTaxableIncome;
         this.totalTaxPayed = totalTaxPayed;
-        this.maxRRSPAllowed = maxRRSPAllowed;
+        this.maxRRSPAllowed = calculateMaxRRSPAllowed();
     }
 
     public String getsNumber() {
@@ -246,5 +246,10 @@ public class CRACustomer implements Serializable {
             ei = (float) (grossIncome*0.0162);
         }
         return ei;
+    }
+
+    private float calculateMaxRRSPAllowed(){
+        maxRRSPAllowed = (float) (grossIncome*0.18);
+        return maxRRSPAllowed;
     }
 }
