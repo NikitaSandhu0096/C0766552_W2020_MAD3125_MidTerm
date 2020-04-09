@@ -253,6 +253,8 @@ public class CRACustomer implements Serializable {
 
     private double calculateCarryForwardRRSP(){
         carryForwardRRSP = (calculateMaxRRSPAllowed() - rrspContributed);
+        BigDecimal bigDecimal = new BigDecimal(carryForwardRRSP).setScale(2, RoundingMode.UP);        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        carryForwardRRSP = bigDecimal.doubleValue();
         return carryForwardRRSP;
     }
 
