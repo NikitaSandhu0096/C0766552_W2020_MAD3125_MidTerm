@@ -83,7 +83,7 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         txtProvincialTax.setText("Provincial Tax : ");
         txtProvincialTax.setTextSize(16);
 
-        txtCPP.setText("CPP : ");
+        txtCPP.setText("CPP : " + tempobj.getCpp());
         txtCPP.setTextSize(16);
 
         txtEI.setText("EI : ");

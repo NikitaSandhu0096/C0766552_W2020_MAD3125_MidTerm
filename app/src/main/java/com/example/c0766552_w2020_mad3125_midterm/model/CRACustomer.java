@@ -49,7 +49,7 @@ public class CRACustomer implements Serializable {
         this.grossIncome = grossIncome;
         this.federalTax = federalTax;
         this.provincialTax = provincialTax;
-        this.cpp = cpp;
+        this.cpp = calculateCPP();
         this.ei = ei;
         this.rrspContributed = rrspContributed;
         this.carryForwardRRSP = carryForwardRRSP;
@@ -198,14 +198,14 @@ public class CRACustomer implements Serializable {
 //    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private int calculateAge(String birthDate) {
+    private int calculateAge(String birthDate) {        //https://www.candidjava.com/tutorial/java-program-to-calculate-age-from-date-of-birth/
 //        int age;
 //        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 //        Date date1 = dateFormat.parse(birthDate);
 //        Calendar calendar = Calendar.getInstance();
 //        calendar.setTime(date1);
 //        int year = calendar.get(Calendar.YEAR);
-//        int month = calendar.get(Calendar.MONTH);
+//        int month = calendar.get(Calendar.MONTH) + 1;
 //        int date = calendar.get(Calendar.DATE);
 //        LocalDate localDate = LocalDate.of(year, month, date);
 //        LocalDate now = LocalDate.now();
@@ -222,9 +222,22 @@ public class CRACustomer implements Serializable {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public String calculateBirthdate(){
+    private String calculateBDate() throws ParseException {
+        SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = dateFormat1.parse(birthDate);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
-        birthDate = dateFormat.format(birthDate);
+        birthDate = dateFormat.format(date);
         return birthDate;
     }
+
+    private float calculateCPP(){
+        if (grossIncome > 57400){
+            cpp = (float) 2927.40;
+        }else {
+            cpp = (float) (grossIncome*0.051);
+        }
+        return cpp;
+    }
+
+    
 }
