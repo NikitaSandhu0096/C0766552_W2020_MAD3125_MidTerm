@@ -1,6 +1,7 @@
 package com.example.c0766552_w2020_mad3125_midterm.ui;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actBar = getSupportActionBar();
+        actBar.setTitle("Tax Filing Form");
 
         // SIN, First Name and Last Name
         txtSIN = findViewById(R.id.personSINNumberTextInputEditText);

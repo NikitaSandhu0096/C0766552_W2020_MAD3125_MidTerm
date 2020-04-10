@@ -278,26 +278,26 @@ public class CRACustomer implements Serializable {
         totalTaxableIncome1 = calculateTotalTaxableIncome();
         double tax = 0;
         if(totalTaxableIncome1 > 10582){
-            totalTaxableIncome1 = totalTaxableIncome1 - 10582;
+            totalTaxableIncome1 = (totalTaxableIncome1 - 10582);
             tax = 0;
             if(totalTaxableIncome1 > 43906){
-                double a = 43906-10582.01;
-                totalTaxableIncome1 = totalTaxableIncome1 - a;
-                tax = a*0.0505;
+                double a = (43906-10582.01);
+                totalTaxableIncome1 = (totalTaxableIncome1 - a);
+                tax = tax + (a*0.0505);
                 if(totalTaxableIncome1 > 87813){
-                    double b = 87813-43906.01;
-                    totalTaxableIncome1 = totalTaxableIncome1 - b;
-                    tax = b*0.0915;
+                    double b = (87813-43906.01);
+                    totalTaxableIncome1 = (totalTaxableIncome1 - b);
+                    tax = tax + (b*0.0915);
                     if (totalTaxableIncome1 > 150000){
-                        double c = 150000-87813.01;
-                        totalTaxableIncome1 = totalTaxableIncome1 - c;
-                        tax = c*0.1116;
+                        double c = (150000-87813.01);
+                        totalTaxableIncome1 = (totalTaxableIncome1 - c);
+                        tax = tax + (c*0.1116);
                         if (totalTaxableIncome1 > 220000){
-                            double d = 220000-150000.01;
-                            totalTaxableIncome1 = totalTaxableIncome1 - d;
-                            tax = d*0.1216;
+                            double d = (220000-150000.01);
+                            totalTaxableIncome1 = (totalTaxableIncome1 - d);
+                            tax = tax + (d*0.1216);
                             if (totalTaxableIncome1 > 220000.01){
-                                tax = totalTaxableIncome1*0.1316;
+                                tax = tax + (totalTaxableIncome1*0.1316);
                             }
                         }else {
                             tax = totalTaxableIncome1*0.1216;

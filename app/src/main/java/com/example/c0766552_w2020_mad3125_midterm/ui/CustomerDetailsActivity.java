@@ -35,7 +35,7 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_details);
 
         ActionBar actBar = getSupportActionBar();
-        actBar.setTitle("Customer Details");
+        actBar.setTitle("Customer Tax Details");
 
         txtSINNumber = findViewById(R.id.textView);
         txtFullName = findViewById(R.id.textView4);
