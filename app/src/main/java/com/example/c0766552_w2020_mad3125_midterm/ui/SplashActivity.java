@@ -13,7 +13,7 @@ public class SplashActivity extends AppCompatActivity {
     private int SPLASH_TIME_OUT = 5000;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {  //https://www.youtube.com/watch?v=jXtof6OUtcE
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
