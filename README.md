@@ -1,9 +1,20 @@
 # C0766552_W2020_MAD3125_MidTerm
 
+# Nikita Sandhu
 ## Tax Filing
-# Nikita Sandhu C0766552
+Three screen are ther:
+a) Splash Screen.
+b) Information Entry screen.
+c) Data display screen.
 
-References
+Required files are placed in appropriate packages.
+
+Material Components are used.
+
+Validations are applied.
+
+
+## References
 
 https://android--code.blogspot.com/2015/08/android-datepickerdialog-date-format.html
 
