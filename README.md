@@ -19,6 +19,8 @@ Validations are applied.
 
 https://www.journaldev.com/9976/android-date-time-picker-dialog
 
+https://android--code.blogspot.com/2015/08/android-datepickerdialog-date-format.html
+
 https://stackoverflow.com/questions/7906301/how-can-i-find-the-number-of-years-between-two-dates
 
 https://stackoverflow.com/questions/11964437/hide-dynamically-added-buttons-based-on-an-if-statement
