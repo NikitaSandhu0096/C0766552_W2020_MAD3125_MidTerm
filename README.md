@@ -13,6 +13,7 @@ Material Components are used.
 
 Validations are applied.
 
+### Documentaion with screenshots is added as .docx file.
 
 ## References
 
